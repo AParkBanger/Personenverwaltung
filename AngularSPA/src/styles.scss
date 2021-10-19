@@ -1,0 +1,64 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container {
+  padding: 25px;
+}
+
+.buttonCell {
+  max-width: 100px;
+}
+
+.hide {
+  display: none;
+}
+
+mat-footer-row mat-footer-cell {
+  justify-content: center;
+  font-style: italic;
+}
+
+/* filter controls */
+.search-form-field {
+  width: 50%;
+  margin-left: 20px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.search-form-field div.mat-form-field-infix {
+  border-top: 0px;
+}
+
+button mat-icon {
+  margin-top: -4px;
+  margin-left: -7px;
+}
+
+/* Dialog */
+
+.dialogHeader {
+  margin-bottom: 20px;
+}
+
+.mat-dialog-actions {
+  margin-top: 30px;
+}
+
+.basicForm {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+
+  mat-radio-button {
+    margin-right: 20px;
+  }
+}

@@ -1,0 +1,32 @@
+<div class="dialogHeader">
+  <h1 mat-dialog-title>Personen erstellen oder bearbeiten</h1>
+</div>
+
+<form class="basicForm">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Favorite food</mat-label>
+    <input matInput placeholder="Vorname" value="" />
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Favorite food</mat-label>
+    <input matInput placeholder="Nachname" value="" />
+  </mat-form-field>
+  <mat-radio-group aria-label="Geschlecht">
+    <mat-radio-button value="1">Männlich</mat-radio-button>
+    <mat-radio-button value="2">Weiblich</mat-radio-button>
+    <mat-radio-button value="3">Divers</mat-radio-button>
+  </mat-radio-group>
+  <!--
+      <mat-form-field appearance="fill">
+        <mat-label>Toppings</mat-label>
+        <mat-select [formControl]="toppings" multiple>
+          <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      -->
+</form>
+
+<div mat-dialog-actions>
+  <button mat-stroked-button color="accent">Abbrechen</button>
+  <button mat-stroked-button color="accent">Speichern</button>
+</div>
