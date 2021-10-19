@@ -17,14 +17,15 @@ import {
   ConfigurationParameters,
   GroupService,
   PersonsService,
-} from './core/api/v1';
+} from './core';
 import { HttpClientModule } from '@angular/common/http';
 import { PersonDialogComponent } from './person/person-dialog/person-dialog.component';
 import { environment } from 'src/environments/environment';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export function apiConfigFactory(): Configuration {
   const params: ConfigurationParameters = {
-    basePath: environment.basePath,
+    basePath: environment.API_BASE_PATH,
   };
   return new Configuration(params);
 }
@@ -46,6 +47,8 @@ export function apiConfigFactory(): Configuration {
     LayoutModule,
     HttpClientModule,
     ApiModule.forRoot(apiConfigFactory),
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

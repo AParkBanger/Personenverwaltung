@@ -61,6 +61,7 @@ namespace WebApi
                                   builder =>
                                   {
                                       builder.WithOrigins("http://localhost:4200");
+                                      builder.AllowAnyHeader();
                                   });
             });
 

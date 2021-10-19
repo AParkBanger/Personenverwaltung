@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { PersonsService } from 'src/app/core/api/v1';
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { Models}
+import { Person, PersonsService } from 'src/app/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-person-dialog',
@@ -10,39 +9,29 @@ import { Models}
   styleUrls: ['./person-dialog.component.scss'],
 })
 export class PersonDialogComponent implements OnInit {
-  private personService: PersonsService;
+  public person: Person = new Person({ id: 0 }); // Normalerweise wäre es hier besser wenn es hier ein dto gäbe ohne ID, dadruch müsste ich sie nicht 0 setzen
+  public form: FormGroup = new FormGroup({});
 
-  public dialogRef: MatDialogRef<PersonDialogComponent>;
-
-  constructor() {}
+  constructor(
+    private personService: PersonsService,
+    private dialogRef: MatDialogRef<PersonDialogComponent>
+  ) {
+    this.form = this.person.getFormGroup();
+  }
 
   ngOnInit(): void {}
 
-  form: FormGroup = new FormGroup({
-    $key: new FormControl(null),
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    birth: new FormControl(''),
-    sex: new FormControl('1'),
-  });
+  public onSubmit() {
+    console.log(this.form.value);
 
-  initializeFormGroup() {
-    this.form.setValue({
-      $key: null,
-      firstName: '',
-      lastName: '',
-      birth: '',
-      sex: '1'
-    });
-  }
-
-  onSubmit() { 
-
-    this.personService.apiPersonsPost()
+    const createdPerson = new Person(this.form.value);
+    this.personService.apiPersonsPost(createdPerson).subscribe();
+    this.form.reset();
     this.onClose();
   }
 
-  onClose(){
+  public onClose() {
+    this.form.reset();
     this.dialogRef.close();
   }
 }

@@ -58,8 +58,8 @@
       <mat-header-cell *matHeaderCellDef [ngClass]="'buttonCell'"
         >Bearbeiten</mat-header-cell
       >
-      <mat-cell *matCellDef="let row" [ngClass]="'buttonCell'">
-        <button mat-icon-button color="accent">
+      <mat-cell *matCellDef="let element" [ngClass]="'buttonCell'">
+        <button mat-icon-button color="accent" (click)="onEdit(element)">
           <mat-icon>launch</mat-icon>
         </button>
       </mat-cell>

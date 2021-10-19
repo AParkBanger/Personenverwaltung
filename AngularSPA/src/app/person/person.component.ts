@@ -5,7 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogConfig } from '@angular/material/dialog';
 import { PersonDialogComponent } from './person-dialog/person-dialog.component';
-import { PersonsService } from '../core/api/v1';
+import { Person, PersonsService } from '../core';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-person',
@@ -18,6 +19,7 @@ export class PersonComponent implements OnInit {
   public searchKey: string;
 
   @ViewChild(MatSort) sort: MatSort;
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
@@ -33,10 +35,6 @@ export class PersonComponent implements OnInit {
       'actionsDelete',
     ];
 
-    var test = this.personService.apiPersonsGet();
-
-    console.log(test);
-
     this.personService.apiPersonsGet().subscribe(
       (result) => {
         this.listData = new MatTableDataSource(result);
@@ -49,20 +47,31 @@ export class PersonComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSearchClear() {
+  public onSearchClear() {
     this.searchKey = '';
     this.applyFilter();
   }
 
-  applyFilter() {
+  public applyFilter() {
     this.listData.filter = this.searchKey.trim().toLowerCase();
   }
 
-  onCreate() {
+  public onCreate() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true; // springt direkt in die erste Textbox
-    //dialogConfig.width = "60%";
+    //dialogConfig.width = '30%';
+    this.dialog.open(PersonDialogComponent, dialogConfig);
+  }
+
+  public onEdit(element) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    let dialogRef: MatDialogRef<PersonDialogComponent> = this.dialog.open(
+      PersonDialogComponent,
+      dialogConfig
+    );
+    dialogRef.componentInstance.person = element as Person;
+    //dialogConfig.width = '30%';
     this.dialog.open(PersonDialogComponent, dialogConfig);
   }
 }

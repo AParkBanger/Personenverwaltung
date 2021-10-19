@@ -45,7 +45,7 @@
         /// </param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=DESKTOP-9ODII40; database=PersonManagementDatabase; Integrated Security = true");
+            optionsBuilder.UseSqlServer("server=T4M-APC-443; database=PersonManagementDatabase; Integrated Security = true");
         }
     }
 }
