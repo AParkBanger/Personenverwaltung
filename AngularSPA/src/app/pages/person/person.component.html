@@ -1,0 +1,101 @@
+<div class="container">
+  <h1>Personen</h1>
+
+  <div class="search-div">
+    <button mat-stroked-button color="accent" (click)="onCreate()">
+      <mat-icon>add</mat-icon>Erstellen
+    </button>
+    <mat-form-field class="search-form-field" floatLabel="never">
+      <input
+        matInput
+        [(ngModel)]="searchKey"
+        placeholder="Suchen"
+        autocomplete="off"
+        (keyup)="applyFilter()"
+      />
+      <button
+        mat-button
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        *ngIf="searchKey"
+        (click)="onSearchClear()"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <mat-table [dataSource]="listData" matSort>
+    <!-- Template für Header und body für eine Spalte -->
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Vorname</mat-header-cell
+      >
+      <mat-cell *matCellDef="let element">{{ element.firstName }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Nachname</mat-header-cell
+      >
+      <mat-cell *matCellDef="let element">{{ element.lastName }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="birth">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Geburtsdatum</mat-header-cell
+      >
+      <mat-cell *matCellDef="let element">{{
+        element.birth | date: "dd.MM.yyyy"
+      }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="sex">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Geschlecht</mat-header-cell
+      >
+      <mat-cell *matCellDef="let element">{{ element.sex }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actionsEdit">
+      <mat-header-cell *matHeaderCellDef [ngClass]="'buttonCell'"
+        >Bearbeiten</mat-header-cell
+      >
+      <mat-cell *matCellDef="let element" [ngClass]="'buttonCell'">
+        <button mat-icon-button color="accent" (click)="onEdit(element)">
+          <mat-icon>launch</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actionsDelete">
+      <mat-header-cell *matHeaderCellDef [ngClass]="'buttonCell'"
+        >Löschen</mat-header-cell
+      >
+      <mat-cell *matCellDef="let element" [ngClass]="'buttonCell'">
+        <button mat-icon-button color="warn" (click)="onDelete(element)">
+          <mat-icon>delete_outline</mat-icon>
+        </button> </mat-cell
+      >onDelete
+    </ng-container>
+    <ng-container matColumnDef="loading">
+      <mat-footer-cell *matFooterCellDef colspan="6">Laden ...</mat-footer-cell>
+    </ng-container>
+    <ng-container matColumnDef="noData">
+      <mat-footer-cell *matFooterCellDef colspan="6"
+        >Keine Daten.</mat-footer-cell
+      >
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    <mat-footer-row
+      *matFooterRowDef="['loading']"
+      [ngClass]="{ hide: listData != null }"
+    ></mat-footer-row>
+    <mat-footer-row
+      *matFooterRowDef="['noData']"
+      [ngClass]="{ hide: !(listData != null && listData.data.length == 0) }"
+    ></mat-footer-row>
+  </mat-table>
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20, 100]"
+    [pageSize]="10"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>

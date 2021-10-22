@@ -1,0 +1,28 @@
+<div class="dialogHeader">
+  <h1 mat-dialog-title>Gruppe {{ group.id ? "bearbeiten" : "erstellen" }}</h1>
+</div>
+
+<form class="basicForm" [formGroup]="form" (submit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="" value="" formControlName="name" />
+  </mat-form-field>
+
+  <!--<mat-form-field appearance="fill">
+    <mat-label>Personen zuweisen</mat-label>
+    <mat-select formControlName="persons" multiple>
+      <mat-option *ngFor="let person of group.persons" [value]="person">{{
+        person
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>-->
+</form>
+
+<div mat-dialog-actions>
+  <button mat-stroked-button color="basic" (click)="onClose()">
+    Abbrechen
+  </button>
+  <button mat-stroked-button color="basic" (click)="onSubmit()">
+    Speichern
+  </button>
+</div>

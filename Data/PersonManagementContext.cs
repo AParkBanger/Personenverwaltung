@@ -1,6 +1,6 @@
 ﻿namespace Data
 {
-    using Data.Models;
+    using Data.Models.DAO;
     using Microsoft.EntityFrameworkCore;
 
     /// <summary>
@@ -13,13 +13,13 @@
         /// Gets or sets the groups.
         /// </summary>
         /// <value>The groups.</value>
-        public DbSet<Group> Groups { get; set; }
+        public DbSet<GroupDAO> Groups { get; set; }
 
         /// <summary>
         /// Gets or sets the persons.
         /// </summary>
         /// <value>The persons.</value>
-        public DbSet<Person> Persons { get; set; }
+        public DbSet<PersonDAO> Persons { get; set; }
 
         /// <summary>
         /// <para>
@@ -45,7 +45,7 @@
         /// </param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=T4M-APC-443; database=PersonManagementDatabase; Integrated Security = true");
+            optionsBuilder.UseSqlServer("server=DESKTOP-9ODII40; database=PersonManagementDatabase; Integrated Security = true");
         }
     }
 }

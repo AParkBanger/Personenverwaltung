@@ -1,25 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\T4M-Projects\\personenverwaltung\\WebApi\\WebApi.csproj": {}
+    "C:\\T4M Projects\\Personenverwaltung\\WebApi\\WebApi.csproj": {}
   },
   "projects": {
-    "C:\\T4M-Projects\\personenverwaltung\\Data\\Data.csproj": {
+    "C:\\T4M Projects\\Personenverwaltung\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\T4M-Projects\\personenverwaltung\\Data\\Data.csproj",
+        "projectUniqueName": "C:\\T4M Projects\\Personenverwaltung\\Data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "C:\\T4M-Projects\\personenverwaltung\\Data\\Data.csproj",
-        "packagesPath": "C:\\Users\\Marc.Thieme.TRANS4MATION\\.nuget\\packages\\",
-        "outputPath": "C:\\T4M-Projects\\personenverwaltung\\Data\\obj\\",
+        "projectPath": "C:\\T4M Projects\\Personenverwaltung\\Data\\Data.csproj",
+        "packagesPath": "C:\\Users\\marc-\\.nuget\\packages\\",
+        "outputPath": "C:\\T4M Projects\\Personenverwaltung\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Marc.Thieme.TRANS4MATION\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\marc-\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -46,6 +45,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.11, )"
@@ -82,22 +85,21 @@
         }
       }
     },
-    "C:\\T4M-Projects\\personenverwaltung\\WebApi\\WebApi.csproj": {
+    "C:\\T4M Projects\\Personenverwaltung\\WebApi\\WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\T4M-Projects\\personenverwaltung\\WebApi\\WebApi.csproj",
+        "projectUniqueName": "C:\\T4M Projects\\Personenverwaltung\\WebApi\\WebApi.csproj",
         "projectName": "WebApi",
-        "projectPath": "C:\\T4M-Projects\\personenverwaltung\\WebApi\\WebApi.csproj",
-        "packagesPath": "C:\\Users\\Marc.Thieme.TRANS4MATION\\.nuget\\packages\\",
-        "outputPath": "C:\\T4M-Projects\\personenverwaltung\\WebApi\\obj\\",
+        "projectPath": "C:\\T4M Projects\\Personenverwaltung\\WebApi\\WebApi.csproj",
+        "packagesPath": "C:\\Users\\marc-\\.nuget\\packages\\",
+        "outputPath": "C:\\T4M Projects\\Personenverwaltung\\WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Marc.Thieme.TRANS4MATION\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\marc-\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -112,8 +114,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\T4M-Projects\\personenverwaltung\\Data\\Data.csproj": {
-                "projectPath": "C:\\T4M-Projects\\personenverwaltung\\Data\\Data.csproj"
+              "C:\\T4M Projects\\Personenverwaltung\\Data\\Data.csproj": {
+                "projectPath": "C:\\T4M Projects\\Personenverwaltung\\Data\\Data.csproj"
               }
             }
           }
@@ -128,9 +130,25 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[5.6.3, )"
+              "version": "[6.2.3, )"
+            },
+            "Unity.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[5.11.5, )"
             }
           },
           "imports": [

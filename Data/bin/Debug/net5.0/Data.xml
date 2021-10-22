@@ -4,6 +4,36 @@
         <name>Data</name>
     </assembly>
     <members>
+        <member name="T:Data.Business.AutoMapper.AutomapperConfiguration">
+            <summary>
+            AutomapperConfiguration.
+            </summary>
+        </member>
+        <member name="M:Data.Business.AutoMapper.AutomapperConfiguration.Configure">
+            <summary>
+            Configures this instance.
+            </summary>
+        </member>
+        <member name="T:Data.Business.AutoMapper.Profiles.GroupProfile">
+            <summary>
+            GroupProfile.
+            </summary>
+        </member>
+        <member name="M:Data.Business.AutoMapper.Profiles.GroupProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Data.Business.AutoMapper.Profiles.GroupProfile" /> class.
+            </summary>
+        </member>
+        <member name="T:Data.Business.AutoMapper.Profiles.PersonProfile">
+            <summary>
+            PersonProfile.
+            </summary>
+        </member>
+        <member name="M:Data.Business.AutoMapper.Profiles.PersonProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Data.Business.AutoMapper.Profiles.PersonProfile" /> class.
+            </summary>
+        </member>
         <member name="T:Data.Enumerations.Sex">
             <summary>
             Sex.
@@ -123,86 +153,132 @@
             </summary>
             <param name="modelBuilder">The <see cref="T:Microsoft.EntityFrameworkCore.ModelBuilder" /> to use to build the model.</param>
         </member>
-        <member name="T:Data.Models.BaseModel">
+        <member name="T:Data.Models.DAO.BaseModelDAO">
             <summary>
             BaseModel.
             </summary>
         </member>
-        <member name="P:Data.Models.BaseModel.Id">
+        <member name="P:Data.Models.DAO.BaseModelDAO.Id">
             <summary>
             Gets or sets the identifier.
             </summary>
-            <value>
-            The identifier.
-            </value>
+            <value>The identifier.</value>
         </member>
-        <member name="T:Data.Models.Group">
+        <member name="T:Data.Models.DAO.GroupDAO">
             <summary>
             Group.
             </summary>
-            <seealso cref="T:Data.Models.BaseModel" />
+            <seealso cref="!:Data.Models.BaseModel" />
         </member>
-        <member name="P:Data.Models.Group.Name">
+        <member name="P:Data.Models.DAO.GroupDAO.Name">
             <summary>
             Gets or sets the name.
             </summary>
-            <value>
-            The name.
-            </value>
+            <value>The name.</value>
         </member>
-        <member name="P:Data.Models.Group.Persons">
+        <member name="P:Data.Models.DAO.GroupDAO.Persons">
             <summary>
             Gets or sets the persons.
             </summary>
-            <value>
-            The persons.
-            </value>
+            <value>The persons.</value>
         </member>
-        <member name="T:Data.Models.Person">
+        <member name="T:Data.Models.DAO.PersonDAO">
             <summary>
             Person.
             </summary>
-            <seealso cref="T:Data.Models.BaseModel" />
         </member>
-        <member name="P:Data.Models.Person.FirstName">
-            <summary>
-            Gets or sets the vorname.
-            </summary>
-            <value>
-            The vorname.
-            </value>
-        </member>
-        <member name="P:Data.Models.Person.LastName">
-            <summary>
-            Gets or sets the nachname.
-            </summary>
-            <value>
-            The nachname.
-            </value>
-        </member>
-        <member name="P:Data.Models.Person.Birth">
+        <member name="P:Data.Models.DAO.PersonDAO.Birth">
             <summary>
             Gets or sets the year of birth.
             </summary>
-            <value>
-            The year of birth.
-            </value>
+            <value>The year of birth.</value>
         </member>
-        <member name="P:Data.Models.Person.Sex">
+        <member name="P:Data.Models.DAO.PersonDAO.FirstName">
             <summary>
-            Gets or sets the sex.
+            Gets or sets the vorname.
             </summary>
-            <value>
-            The sex.
-            </value>
+            <value>The vorname.</value>
         </member>
-        <member name="P:Data.Models.Person.Groups">
+        <member name="P:Data.Models.DAO.PersonDAO.Groups">
             <summary>
             Gets or sets the groups.
             </summary>
-            <value>
-            The groups.
-            </value>
+            <value>The groups.</value>
+        </member>
+        <member name="P:Data.Models.DAO.PersonDAO.LastName">
+            <summary>
+            Gets or sets the nachname.
+            </summary>
+            <value>The nachname.</value>
+        </member>
+        <member name="P:Data.Models.DAO.PersonDAO.Sex">
+            <summary>
+            Gets or sets the sex.
+            </summary>
+            <value>The sex.</value>
+        </member>
+        <member name="T:Data.Models.DTO.BaseModelDTO">
+            <summary>
+            BaseModelDTO.
+            </summary>
+        </member>
+        <member name="P:Data.Models.DTO.BaseModelDTO.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="T:Data.Models.DTO.GroupDTO">
+            <summary>
+            GroupDTO.
+            </summary>
+        </member>
+        <member name="P:Data.Models.DTO.GroupDTO.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Data.Models.DTO.GroupDTO.Persons">
+            <summary>
+            Gets or sets the persons.
+            </summary>
+            <value>The persons.</value>
+        </member>
+        <member name="T:Data.Models.DTO.PersonDTO">
+            <summary>
+            PersonDTO.
+            </summary>
+        </member>
+        <member name="P:Data.Models.DTO.PersonDTO.Birth">
+            <summary>
+            Gets or sets the year of birth.
+            </summary>
+            <value>The year of birth.</value>
+        </member>
+        <member name="P:Data.Models.DTO.PersonDTO.FirstName">
+            <summary>
+            Gets or sets the vorname.
+            </summary>
+            <value>The vorname.</value>
+        </member>
+        <member name="P:Data.Models.DTO.PersonDTO.Groups">
+            <summary>
+            Gets or sets the groups.
+            </summary>
+            <value>The groups.</value>
+        </member>
+        <member name="P:Data.Models.DTO.PersonDTO.LastName">
+            <summary>
+            Gets or sets the nachname.
+            </summary>
+            <value>The nachname.</value>
+        </member>
+        <member name="P:Data.Models.DTO.PersonDTO.Sex">
+            <summary>
+            Gets or sets the sex.
+            </summary>
+            <value>The sex.</value>
         </member>
         <member name="T:Data.PersonManagementContext">
             <summary>

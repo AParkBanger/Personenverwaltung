@@ -1,5 +1,7 @@
-﻿using Data;
-using Data.Models;
+﻿using AutoMapper;
+using Data;
+using Data.Models.DAO;
+using Data.Models.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -15,14 +17,16 @@ namespace WebApi.Controllers
     public class PersonsController : ControllerBase
     {
         private readonly PersonManagementContext context;
+        private readonly IMapper mapper;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PersonssController" /> class.
         /// </summary>
         /// <param name="context">The context.</param>
-        public PersonsController(PersonManagementContext context)
+        public PersonsController(PersonManagementContext context, IMapper mapper)
         {
             this.context = context;
+            this.mapper = mapper;
         }
 
         /// <summary>
@@ -30,7 +34,7 @@ namespace WebApi.Controllers
         /// </summary>
         /// <param name="id">The identifier.</param>
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Person>> DeletePerson(long id)
+        public async Task<ActionResult<PersonDTO>> DeletePerson(long id)
         {
             var person = await context.Persons.FindAsync(id);
             if (person == null)
@@ -41,7 +45,7 @@ namespace WebApi.Controllers
             context.Persons.Remove(person);
             await context.SaveChangesAsync();
 
-            return person;
+            return mapper.Map<PersonDTO>(person);
         }
 
         /// <summary>
@@ -49,7 +53,7 @@ namespace WebApi.Controllers
         /// </summary>
         /// <param name="id">The identifier.</param>
         [HttpGet("{id}")]
-        public async Task<ActionResult<Person>> GetPerson(long id)
+        public async Task<ActionResult<PersonDTO>> GetPerson(long id)
         {
             var person = await context.Persons.FindAsync(id);
 
@@ -58,16 +62,18 @@ namespace WebApi.Controllers
                 return NotFound();
             }
 
-            return person;
+            return mapper.Map<PersonDTO>(person);
         }
 
         /// <summary>
         /// GET: api/Persons.
         /// </summary>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Person>>> GetPersons()
+        public async Task<ActionResult<IEnumerable<PersonDTO>>> GetPersons()
         {
-            return await context.Persons.ToListAsync();
+            var persons = await context.Persons.ToListAsync();
+
+            return mapper.Map<List<PersonDTO>>(persons);
         }
 
         /// <summary>
@@ -75,12 +81,14 @@ namespace WebApi.Controllers
         /// </summary>
         /// <param name="person">The person.</param>
         [HttpPost]
-        public async Task<ActionResult<Person>> PostPerson(Person person)
+        public async Task<ActionResult<PersonDTO>> PostPerson(PersonDTO person)
         {
-            context.Persons.Add(person);
-            await context.SaveChangesAsync();
+            var personDAO = mapper.Map<PersonDAO>(person);
 
-            return CreatedAtAction("GetPerson", new { id = person.Id }, person);
+            var personInDB = (await context.Persons.AddAsync(personDAO)).Entity;
+            await context.SaveChangesAsync();
+            var createResult = CreatedAtAction(nameof(PersonsController.GetPerson), new { id = personInDB.Id }, mapper.Map<PersonDTO>(personInDB));
+            return createResult;
         }
 
         /// <summary>
@@ -89,18 +97,21 @@ namespace WebApi.Controllers
         /// <param name="id">The identifier.</param>
         /// <param name="person">The person.</param>
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPerson(long id, Person person)
+        public async Task<IActionResult> PutPerson(long id, PersonDTO person)
         {
             if (id != person.Id)
             {
                 return BadRequest();
             }
 
-            context.Entry(person).State = EntityState.Modified;
+            var personDAO = mapper.Map<PersonDAO>(person);
+            context.Entry(personDAO).State = EntityState.Modified;
 
             try
             {
                 await context.SaveChangesAsync();
+                var createResult = CreatedAtAction(nameof(PersonsController.GetPerson), new { id = id }, mapper.Map<PersonDTO>(personDAO));
+                return createResult;
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -113,8 +124,6 @@ namespace WebApi.Controllers
                     throw;
                 }
             }
-
-            return NoContent();
         }
 
         private bool PersonExists(long id)

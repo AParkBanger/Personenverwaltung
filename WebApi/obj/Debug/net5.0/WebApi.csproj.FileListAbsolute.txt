@@ -49,7 +49,6 @@ C:\T4M Projects\Personenverwaltung\WebApi\obj\Debug\net5.0\WebApi.GeneratedMSBui
 C:\T4M Projects\Personenverwaltung\WebApi\obj\Debug\net5.0\WebApi.AssemblyInfoInputs.cache
 C:\T4M Projects\Personenverwaltung\WebApi\obj\Debug\net5.0\WebApi.AssemblyInfo.cs
 C:\T4M Projects\Personenverwaltung\WebApi\obj\Debug\net5.0\WebApi.csproj.CoreCompileInputs.cache
-C:\T4M Projects\Personenverwaltung\WebApi\obj\Debug\net5.0\WebApi.MvcApplicationPartsAssemblyInfo.cs
 C:\T4M Projects\Personenverwaltung\WebApi\obj\Debug\net5.0\WebApi.MvcApplicationPartsAssemblyInfo.cache
 C:\T4M Projects\Personenverwaltung\WebApi\obj\Debug\net5.0\staticwebassets\WebApi.StaticWebAssets.Manifest.cache
 C:\T4M Projects\Personenverwaltung\WebApi\obj\Debug\net5.0\staticwebassets\WebApi.StaticWebAssets.xml
@@ -121,3 +120,9 @@ C:\T4M-Projects\personenverwaltung\WebApi\obj\Debug\net5.0\WebApi.dll
 C:\T4M-Projects\personenverwaltung\WebApi\obj\Debug\net5.0\ref\WebApi.dll
 C:\T4M-Projects\personenverwaltung\WebApi\obj\Debug\net5.0\WebApi.pdb
 C:\T4M-Projects\personenverwaltung\WebApi\obj\Debug\net5.0\WebApi.genruntimeconfig.cache
+C:\T4M Projects\Personenverwaltung\WebApi\bin\Debug\net5.0\AutoMapper.dll
+C:\T4M Projects\Personenverwaltung\WebApi\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\T4M Projects\Personenverwaltung\WebApi\bin\Debug\net5.0\Unity.Abstractions.dll
+C:\T4M Projects\Personenverwaltung\WebApi\bin\Debug\net5.0\Unity.Container.dll
+C:\T4M Projects\Personenverwaltung\WebApi\obj\Debug\net5.0\WebApi.MvcApplicationPartsAssemblyInfo.cs
+C:\T4M Projects\Personenverwaltung\WebApi\bin\Debug\net5.0\Unity.Microsoft.DependencyInjection.dll

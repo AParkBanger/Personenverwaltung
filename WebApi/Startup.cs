@@ -1,4 +1,5 @@
 using Data;
+using Data.Business.AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -12,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Unity;
 
 namespace WebApi
 {
@@ -51,6 +53,13 @@ namespace WebApi
             });
         }
 
+        public void ConfigureContainer(IUnityContainer container)
+        {
+            // Automapper
+            var mapper = AutomapperConfiguration.Configure();
+            container.RegisterInstance(mapper);
+        }
+
         // This method gets called by the runtime. Use this method to add services to the
         // container.
         public void ConfigureServices(IServiceCollection services)
@@ -62,6 +71,7 @@ namespace WebApi
                                   {
                                       builder.WithOrigins("http://localhost:4200");
                                       builder.AllowAnyHeader();
+                                      builder.AllowAnyMethod();
                                   });
             });
 

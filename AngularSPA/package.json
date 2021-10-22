@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "generate:api": "@openapi-generator-cli generate -i ./openapi.json -g typescript-angular -o src/app/core/api/v1 -p=removeOperationIdPrefix=true",
-    "openapilocal": "java -jar ./openapi/openapi-generator-cli.jar generate -g typescript-angular -o ./src/app/core/ -c ./openapi/swagger-codegen-cli.cfg.json -t ./openapi/templates -i ./openapi.json --skip-validate-spec"
+    "openapilocal": "java -jar ./openapi/openapi-generator-cli.jar generate -g typescript-angular -o ./src/app/@core/client -c ./openapi/swagger-codegen-cli.cfg.json -t ./openapi/templates -i ./openapi.json --skip-validate-spec"
   },
   "private": true,
   "dependencies": {
