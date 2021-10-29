@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatOptionModule } from '@angular/material/core';
 import { GroupDialogComponent } from './group-dialog/group-dialog.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [GroupComponent, GroupDialogComponent],
@@ -29,6 +30,7 @@ import { GroupDialogComponent } from './group-dialog/group-dialog.component';
     MatInputModule,
     MatDialogModule,
     MatOptionModule,
+    MatSelectModule,
   ],
 })
 export class GroupModule {}

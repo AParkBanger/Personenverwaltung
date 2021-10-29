@@ -126,3 +126,6 @@ C:\T4M Projects\Personenverwaltung\WebApi\bin\Debug\net5.0\Unity.Abstractions.dl
 C:\T4M Projects\Personenverwaltung\WebApi\bin\Debug\net5.0\Unity.Container.dll
 C:\T4M Projects\Personenverwaltung\WebApi\obj\Debug\net5.0\WebApi.MvcApplicationPartsAssemblyInfo.cs
 C:\T4M Projects\Personenverwaltung\WebApi\bin\Debug\net5.0\Unity.Microsoft.DependencyInjection.dll
+C:\T4M Projects\Personenverwaltung\WebApi\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\T4M Projects\Personenverwaltung\WebApi\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\T4M Projects\Personenverwaltung\WebApi\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll

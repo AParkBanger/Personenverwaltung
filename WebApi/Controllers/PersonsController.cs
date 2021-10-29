@@ -71,7 +71,7 @@ namespace WebApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PersonDTO>>> GetPersons()
         {
-            var persons = await context.Persons.ToListAsync();
+            var persons = await context.Persons.Include(x => x.Groups).ToListAsync();
 
             return mapper.Map<List<PersonDTO>>(persons);
         }

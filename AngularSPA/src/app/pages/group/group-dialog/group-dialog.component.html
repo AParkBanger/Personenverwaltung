@@ -8,14 +8,14 @@
     <input matInput placeholder="" value="" formControlName="name" />
   </mat-form-field>
 
-  <!--<mat-form-field appearance="fill">
+  <mat-form-field appearance="fill">
     <mat-label>Personen zuweisen</mat-label>
-    <mat-select formControlName="persons" multiple>
-      <mat-option *ngFor="let person of group.persons" [value]="person">{{
-        person
+    <mat-select multiple formControlName="persons">
+      <mat-option *ngFor="let person of persons" [value]="persons">{{
+        person.firstName + " " + person.lastName
       }}</mat-option>
     </mat-select>
-  </mat-form-field>-->
+  </mat-form-field>
 </form>
 
 <div mat-dialog-actions>
