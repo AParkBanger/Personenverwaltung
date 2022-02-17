@@ -18,6 +18,7 @@ export class GroupDialogComponent implements OnInit {
   public group: GroupDTO = new GroupDTO({ id: 0 });
   public form: FormGroup = new FormGroup({});
   public persons: PersonDTO[];
+  public selectedPersonIds: number[];
 
   constructor(
     private groupService: GroupService,
@@ -27,56 +28,59 @@ export class GroupDialogComponent implements OnInit {
   ) {
     if (this.data != null) {
       this.group = new GroupDTO(this.data);
+      this.selectedPersonIds = this.group.persons.map(({ id }) => id);
+    } else {
+      this.selectedPersonIds = [];
     }
+
     this.personService.apiPersonsGet().subscribe((result) => {
       this.persons = result as PersonDTO[];
     });
-
-    console.log(this.group.persons);
   }
 
   ngOnInit(): void {
-    this.form = this.getFormGroup();
+    this.form = this.group.getFormGroup();
   }
 
   public onSubmit() {
+    this.group = new GroupDTO(this.form.value);
+    this.group.persons = [];
+
+    this.selectedPersonIds.forEach((x) =>
+      this.group.persons.push(
+        new PersonDTO(this.persons.find((y) => y.id == x))
+      )
+    );
+
     if (this.group.id == 0) {
-      this.group = new GroupDTO(this.form.value);
       console.log(this.group);
       console.log(this.group);
-      this.groupService.apiGroupPost(this.group).subscribe(
-        (result) => {
-          this.onClose(result);
-        },
-        (error) => {
-          console.error(error);
-        }
-      );
+      this.groupService
+        .apiGroupPost(this.group.name, this.selectedPersonIds)
+        .subscribe(
+          (result) => {
+            this.onClose(result);
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
     } else {
-      this.group = new GroupDTO(this.form.value);
-      this.groupService.apiGroupIdPut(this.group.id, this.group).subscribe(
-        (result) => {
-          this.onClose(result);
-        },
-        (error) => {
-          console.error(error);
-        }
-      );
+      this.groupService
+        .apiGroupIdPut(this.group.id, this.group.name, this.selectedPersonIds)
+        .subscribe(
+          (result) => {
+            this.onClose(result);
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
     }
   }
 
   public onClose(result?) {
     this.form.reset();
     this.dialogRef.close(result);
-  }
-
-  public getFormGroup(): FormGroup {
-    const formGroup: FormGroup = new FormGroup({
-      id: new FormControl(this.group.id, []),
-      name: new FormControl(this.group.name, []),
-      persons: new FormControl(this.group.persons, []),
-    });
-
-    return formGroup;
   }
 }

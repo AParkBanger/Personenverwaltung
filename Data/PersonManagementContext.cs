@@ -1,13 +1,16 @@
 ﻿namespace Data
 {
+    using Data.Models.Auth;
     using Data.Models.DAO;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
 
     /// <summary>
     /// PersonManagementContext.
     /// </summary>
     /// <seealso cref="Microsoft.EntityFrameworkCore.DbContext" />
-    public class PersonManagementContext : DbContext
+    public class PersonManagementContext : IdentityDbContext<AppUser, IdentityRole, string>
     {
         /// <summary>
         /// Gets or sets the groups.
@@ -68,6 +71,7 @@
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<PersonDAO>().HasMany(p => p.Groups).WithMany(g => g.Persons);
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

@@ -1,0 +1,15 @@
+C:\T4M Projects\Personenverwaltung\Data\bin\Debug\net6.0\Data.deps.json
+C:\T4M Projects\Personenverwaltung\Data\bin\Debug\net6.0\Data.runtimeconfig.json
+C:\T4M Projects\Personenverwaltung\Data\bin\Debug\net6.0\Data.dll
+C:\T4M Projects\Personenverwaltung\Data\bin\Debug\net6.0\ref\Data.dll
+C:\T4M Projects\Personenverwaltung\Data\bin\Debug\net6.0\Data.pdb
+C:\T4M Projects\Personenverwaltung\Data\bin\Debug\net6.0\Data.xml
+C:\T4M Projects\Personenverwaltung\Data\obj\Debug\net6.0\Data.csproj.AssemblyReference.cache
+C:\T4M Projects\Personenverwaltung\Data\obj\Debug\net6.0\Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\T4M Projects\Personenverwaltung\Data\obj\Debug\net6.0\Data.AssemblyInfoInputs.cache
+C:\T4M Projects\Personenverwaltung\Data\obj\Debug\net6.0\Data.AssemblyInfo.cs
+C:\T4M Projects\Personenverwaltung\Data\obj\Debug\net6.0\Data.csproj.CoreCompileInputs.cache
+C:\T4M Projects\Personenverwaltung\Data\obj\Debug\net6.0\Data.dll
+C:\T4M Projects\Personenverwaltung\Data\obj\Debug\net6.0\ref\Data.dll
+C:\T4M Projects\Personenverwaltung\Data\obj\Debug\net6.0\Data.pdb
+C:\T4M Projects\Personenverwaltung\Data\obj\Debug\net6.0\Data.genruntimeconfig.cache

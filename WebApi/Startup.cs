@@ -1,9 +1,12 @@
 using Data;
 using Data.Business.AutoMapper;
+using Data.Models.Auth;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -17,19 +20,33 @@ using Unity;
 
 namespace WebApi
 {
+    /// <summary>
+    /// Startup.
+    /// </summary>
     public class Startup
     {
         private readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
+        /// <summary>
+        /// Gets the configuration.
+        /// </summary>
+        /// <value>The configuration.</value>
         public IConfiguration Configuration { get; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Startup" /> class.
+        /// </summary>
+        /// <param name="configuration">The configuration.</param>
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP
-        // request pipeline.
+        /// <summary>
+        /// Configures the specified application.
+        /// </summary>
+        /// <param name="app">The application.</param>
+        /// <param name="env">The env.</param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -53,6 +70,10 @@ namespace WebApi
             });
         }
 
+        /// <summary>
+        /// Configures the container.
+        /// </summary>
+        /// <param name="container">The container.</param>
         public void ConfigureContainer(IUnityContainer container)
         {
             // Automapper
@@ -60,27 +81,34 @@ namespace WebApi
             container.RegisterInstance(mapper);
         }
 
-        // This method gets called by the runtime. Use this method to add services to the
-        // container.
+        /// <summary>
+        /// This method gets called by the runtime. Use this method to add services to the
+        /// container.
+        /// </summary>
+        /// <param name="services">The services.</param>
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors(options =>
             {
-                options.AddPolicy(name: MyAllowSpecificOrigins,
-                                  builder =>
-                                  {
-                                      builder.WithOrigins("http://localhost:4200");
-                                      builder.AllowAnyHeader();
-                                      builder.AllowAnyMethod();
-                                  });
+                options.AddPolicy(
+                    name: MyAllowSpecificOrigins,
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:4200");
+                        builder.AllowAnyHeader();
+                        builder.AllowAnyMethod();
+                    });
             });
 
             services.AddDbContext<PersonManagementContext>();
+            services.AddIdentity<AppUser, IdentityRole>(opt => { }).AddEntityFrameworkStores<PersonManagementContext>();
+
             services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApi", Version = "v1" });
             });
+            services.AddRazorPages();
         }
     }
 }

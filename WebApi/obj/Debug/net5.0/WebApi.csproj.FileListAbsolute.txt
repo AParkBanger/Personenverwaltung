@@ -129,3 +129,10 @@ C:\T4M Projects\Personenverwaltung\WebApi\bin\Debug\net5.0\Unity.Microsoft.Depen
 C:\T4M Projects\Personenverwaltung\WebApi\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\T4M Projects\Personenverwaltung\WebApi\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\T4M Projects\Personenverwaltung\WebApi\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\T4M Projects\Personenverwaltung\WebApi\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\T4M Projects\Personenverwaltung\WebApi\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\T4M Projects\Personenverwaltung\WebApi\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\T4M Projects\Personenverwaltung\WebApi\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\T4M Projects\Personenverwaltung\WebApi\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+C:\T4M Projects\Personenverwaltung\WebApi\bin\Debug\net5.0\WebApi.xml
+C:\T4M Projects\Personenverwaltung\WebApi\obj\Debug\net5.0\WebApi.csproj.CopyComplete

@@ -34,6 +34,16 @@
             Initializes a new instance of the <see cref="T:Data.Business.AutoMapper.Profiles.PersonProfile" /> class.
             </summary>
         </member>
+        <member name="T:Data.Business.AutoMapper.Profiles.UserProfile">
+            <summary>
+            UserProfile.
+            </summary>
+        </member>
+        <member name="M:Data.Business.AutoMapper.Profiles.UserProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Data.Business.AutoMapper.Profiles.UserProfile" /> class.
+            </summary>
+        </member>
         <member name="T:Data.Enumerations.Sex">
             <summary>
             Sex.
@@ -55,10 +65,6 @@
             </summary>
         </member>
         <member name="T:Data.Migrations.InitialMigration">
-            <summary>
-            InitialMigration.
-            </summary>
-            <seealso cref="T:Microsoft.EntityFrameworkCore.Migrations.Migration" />
             <summary>
             InitialMigration.
             </summary>
@@ -103,55 +109,68 @@
             that will build the operations.
             </param>
         </member>
-        <member name="M:Data.Migrations.InitialMigration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="T:Data.Models.Auth.AddUpdateRegisterUserBindingModel">
             <summary>
-            Implemented to build the <see cref="P:Microsoft.EntityFrameworkCore.Migrations.Migration.TargetModel" />.
+            Zum updaten und registrieren eines Nutzers.
             </summary>
-            <param name="modelBuilder">The <see cref="T:Microsoft.EntityFrameworkCore.ModelBuilder" /> to use to build the model.</param>
         </member>
-        <member name="T:Data.Migrations.GroupPersonRelationshipMigration">
+        <member name="P:Data.Models.Auth.AddUpdateRegisterUserBindingModel.Email">
             <summary>
-            GroupPersonRelationshipMigration.
+            Gets or sets the email.
             </summary>
-            <seealso cref="T:Microsoft.EntityFrameworkCore.Migrations.Migration" />
+            <value>The email.</value>
         </member>
-        <member name="M:Data.Migrations.GroupPersonRelationshipMigration.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="P:Data.Models.Auth.AddUpdateRegisterUserBindingModel.FullName">
             <summary>
-            <para>
-            Builds the operations that will migrate the database 'up'.
-            </para>
-            <para>
-            That is, builds the operations that will take the database from the state left in by the
-            previous migration so that it is up-to-date with regard to this migration.
-            </para>
-            <para>
-            This method must be overridden in each class the inherits from <see cref="T:Microsoft.EntityFrameworkCore.Migrations.Migration" />.
-            </para>
+            Gets or sets the full name.
             </summary>
-            <param name="migrationBuilder">The <see cref="T:Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder" /> that will build the operations.</param>
+            <value>The full name.</value>
         </member>
-        <member name="M:Data.Migrations.GroupPersonRelationshipMigration.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="P:Data.Models.Auth.AddUpdateRegisterUserBindingModel.Password">
             <summary>
-            <para>
-            Builds the operations that will migrate the database 'down'.
-            </para>
-            <para>
-            That is, builds the operations that will take the database from the state left in by
-            this migration so that it returns to the state that it was in before this migration was applied.
-            </para>
-            <para>
-            This method must be overridden in each class the inherits from <see cref="T:Microsoft.EntityFrameworkCore.Migrations.Migration" /> if
-            both 'up' and 'down' migrations are to be supported. If it is not overridden, then calling it
-            will throw and it will not be possible to migrate in the 'down' direction.
-            </para>
+            Gets or sets the password.
             </summary>
-            <param name="migrationBuilder">The <see cref="T:Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder" /> that will build the operations.</param>
+            <value>The password.</value>
         </member>
-        <member name="M:Data.Migrations.GroupPersonRelationshipMigration.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="T:Data.Models.Auth.AppUser">
             <summary>
-            Implemented to build the <see cref="P:Microsoft.EntityFrameworkCore.Migrations.Migration.TargetModel" />.
+            AppUser.
             </summary>
-            <param name="modelBuilder">The <see cref="T:Microsoft.EntityFrameworkCore.ModelBuilder" /> to use to build the model.</param>
+        </member>
+        <member name="P:Data.Models.Auth.AppUser.Created">
+            <summary>
+            Gets or sets the created.
+            </summary>
+            <value>The created.</value>
+        </member>
+        <member name="P:Data.Models.Auth.AppUser.FullName">
+            <summary>
+            Gets or sets the full name.
+            </summary>
+            <value>The full name.</value>
+        </member>
+        <member name="P:Data.Models.Auth.AppUser.Modified">
+            <summary>
+            Gets or sets the modified.
+            </summary>
+            <value>The modified.</value>
+        </member>
+        <member name="T:Data.Models.Auth.LoginBindingModel">
+            <summary>
+            LoginBindingModel.
+            </summary>
+        </member>
+        <member name="P:Data.Models.Auth.LoginBindingModel.Email">
+            <summary>
+            Gets or sets the email.
+            </summary>
+            <value>The email.</value>
+        </member>
+        <member name="P:Data.Models.Auth.LoginBindingModel.Password">
+            <summary>
+            Gets or sets the password.
+            </summary>
+            <value>The password.</value>
         </member>
         <member name="T:Data.Models.DAO.BaseModelDAO">
             <summary>
@@ -168,7 +187,6 @@
             <summary>
             Group.
             </summary>
-            <seealso cref="!:Data.Models.BaseModel" />
         </member>
         <member name="P:Data.Models.DAO.GroupDAO.Name">
             <summary>

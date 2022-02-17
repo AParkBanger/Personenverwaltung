@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [PersonComponent, PersonDialogComponent],
@@ -32,6 +33,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatButtonModule,
     MatInputModule,
     MatDialogModule,
+    MatSortModule,
   ],
 })
 export class PersonModule {}

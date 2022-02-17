@@ -14,6 +14,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatOptionModule } from '@angular/material/core';
 import { GroupDialogComponent } from './group-dialog/group-dialog.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [GroupComponent, GroupDialogComponent],
@@ -31,6 +32,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatDialogModule,
     MatOptionModule,
     MatSelectModule,
+    MatSortModule,
   ],
 })
 export class GroupModule {}

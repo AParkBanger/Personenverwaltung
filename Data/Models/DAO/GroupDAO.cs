@@ -5,7 +5,6 @@ namespace Data.Models.DAO
     /// <summary>
     /// Group.
     /// </summary>
-    /// <seealso cref="Data.Models.BaseModel" />
     public class GroupDAO : BaseModelDAO
     {
         /// <summary>

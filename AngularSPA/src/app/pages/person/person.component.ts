@@ -36,7 +36,6 @@ export class PersonComponent implements OnInit {
       'actionsEdit',
       'actionsDelete',
     ];
-
     this.refreshList();
   }
 

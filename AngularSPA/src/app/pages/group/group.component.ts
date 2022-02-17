@@ -26,7 +26,7 @@ export class GroupComponent implements OnInit {
     private dialog: MatDialog,
     private changeDetectorRefs: ChangeDetectorRef
   ) {
-    this.displayedColumns = ['Name', 'actionsEdit', 'actionsDelete'];
+    this.displayedColumns = ['name', 'actionsEdit', 'actionsDelete'];
 
     this.refreshList();
   }

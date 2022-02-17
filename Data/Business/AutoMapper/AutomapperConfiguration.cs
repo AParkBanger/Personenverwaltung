@@ -22,6 +22,7 @@ namespace Data.Business.AutoMapper
             {
                 cfg.AddProfile<GroupProfile>();
                 cfg.AddProfile<PersonProfile>();
+                cfg.AddProfile<UserProfile>();
             });
             config.AssertConfigurationIsValid();
             return config.CreateMapper();

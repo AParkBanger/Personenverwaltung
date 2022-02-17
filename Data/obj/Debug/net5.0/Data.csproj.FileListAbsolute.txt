@@ -13,7 +13,6 @@ C:\T4M Projects\Personenverwaltung\Data\obj\Debug\net5.0\ref\Data.dll
 C:\T4M Projects\Personenverwaltung\Data\obj\Debug\net5.0\Data.pdb
 C:\T4M Projects\Personenverwaltung\Data\obj\Debug\net5.0\Data.genruntimeconfig.cache
 C:\T4M Projects\Personenverwaltung\Data\bin\Debug\net5.0\Data.xml
-C:\T4M Projects\Personenverwaltung\Data\obj\Debug\net5.0\Data.csproj.AssemblyReference.cache
 C:\T4M-Projects\personenverwaltung\Data\bin\Debug\net5.0\Data.deps.json
 C:\T4M-Projects\personenverwaltung\Data\bin\Debug\net5.0\Data.runtimeconfig.json
 C:\T4M-Projects\personenverwaltung\Data\bin\Debug\net5.0\Data.runtimeconfig.dev.json

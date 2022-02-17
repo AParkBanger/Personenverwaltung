@@ -12,6 +12,10 @@ using System.Threading.Tasks;
 
 namespace WebApi.Controllers
 {
+    /// <summary>
+    /// PersonsController.
+    /// </summary>
+    /// <seealso cref="Microsoft.AspNetCore.Mvc.ControllerBase" />
     [Route("api/[controller]")]
     [ApiController]
     public class PersonsController : ControllerBase
@@ -20,9 +24,10 @@ namespace WebApi.Controllers
         private readonly IMapper mapper;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PersonssController" /> class.
+        /// Initializes a new instance of the <see cref="PersonsController" /> class.
         /// </summary>
         /// <param name="context">The context.</param>
+        /// <param name="mapper">The mapper.</param>
         public PersonsController(PersonManagementContext context, IMapper mapper)
         {
             this.context = context;

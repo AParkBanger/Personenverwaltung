@@ -10,8 +10,8 @@
 
   <mat-form-field appearance="fill">
     <mat-label>Personen zuweisen</mat-label>
-    <mat-select multiple formControlName="persons">
-      <mat-option *ngFor="let person of persons" [value]="persons">{{
+    <mat-select multiple formArrayName="persons" [(value)]="selectedPersonIds">
+      <mat-option *ngFor="let person of persons" [value]="person.id">{{
         person.firstName + " " + person.lastName
       }}</mat-option>
     </mat-select>

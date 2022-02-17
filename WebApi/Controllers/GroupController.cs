@@ -12,6 +12,10 @@ using System.Threading.Tasks;
 
 namespace WebApi.Controllers
 {
+    /// <summary>
+    /// GroupController.
+    /// </summary>
+    /// <seealso cref="Microsoft.AspNetCore.Mvc.ControllerBase" />
     [Route("api/[controller]")]
     [ApiController]
     public class GroupController : ControllerBase
@@ -20,9 +24,10 @@ namespace WebApi.Controllers
         private readonly IMapper mapper;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GroupssController" /> class.
+        /// Initializes a new instance of the <see cref="GroupController" /> class.
         /// </summary>
         /// <param name="context">The context.</param>
+        /// <param name="mapper">The mapper.</param>
         public GroupController(PersonManagementContext context, IMapper mapper)
         {
             this.context = context;
@@ -77,13 +82,25 @@ namespace WebApi.Controllers
         }
 
         /// <summary>
-        /// POST: api/Groups.
+        /// Posts the group.
         /// </summary>
-        /// <param name="group">The Group.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="personIds">The person ids.</param>
         [HttpPost]
-        public async Task<ActionResult<GroupDTO>> PostGroup(GroupDTO group)
+        public async Task<ActionResult<GroupDTO>> PostGroup(string name, long[] personIds)
         {
-            var groupDAO = mapper.Map<GroupDAO>(group);
+            var persons = new List<PersonDAO>();
+
+            foreach (long personId in personIds)
+            {
+                persons.Add(context.Persons.Find(personId));
+            }
+
+            var groupDAO = new GroupDAO()
+            {
+                Name = name,
+                Persons = persons,
+            };
 
             var groupInDb = (await context.Groups.AddAsync(groupDAO)).Entity;
             await context.SaveChangesAsync();
@@ -92,20 +109,32 @@ namespace WebApi.Controllers
         }
 
         /// <summary>
-        /// PUT: api/Groups/5.
+        /// Puts the group.
         /// </summary>
         /// <param name="id">The identifier.</param>
-        /// <param name="group">The Group.</param>
+        /// <param name="groupName">Name of the group.</param>
+        /// <param name="personIds">The person ids.</param>
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutGroup(long id, GroupDTO group)
+        public async Task<IActionResult> PutGroup(long id, string groupName, long[] personIds)
         {
-            if (id != group.Id)
+            var groupDAO = context.Groups.Include(x => x.Persons).FirstOrDefault(x => x.Id == id);
+
+            if (groupDAO == null)
             {
-                return BadRequest();
+                return NotFound();
             }
 
-            var groupDAO = mapper.Map<GroupDAO>(group);
-            context.Entry(groupDAO).State = EntityState.Modified;
+            groupDAO.Name = groupName;
+
+            foreach (var person in groupDAO.Persons)
+            {
+                groupDAO.Persons.Remove(person);
+            }
+
+            foreach (long personId in personIds)
+            {
+                groupDAO.Persons.Add(context.Persons.Find(personId));
+            }
 
             try
             {
@@ -115,20 +144,8 @@ namespace WebApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!GroupExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
-        }
-
-        private bool GroupExists(long id)
-        {
-            return context.Groups.Any(e => e.Id == id);
         }
     }
 }

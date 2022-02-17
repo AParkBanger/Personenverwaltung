@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:WebApi.Controllers.GroupController">
+            <summary>
+            GroupController.
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="M:WebApi.Controllers.GroupController.#ctor(Data.PersonManagementContext,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebApi.Controllers.GroupController" /> class.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="mapper">The mapper.</param>
+        </member>
+        <member name="M:WebApi.Controllers.GroupController.DeleteGroup(System.Int64)">
+            <summary>
+            DELETE: api/Groups/5.
+            </summary>
+            <param name="id">The identifier.</param>
+        </member>
+        <member name="M:WebApi.Controllers.GroupController.GetGroup(System.Int64)">
+            <summary>
+            GET: api/Groups/5.
+            </summary>
+            <param name="id">The identifier.</param>
+        </member>
+        <member name="M:WebApi.Controllers.GroupController.GetGroups">
+            <summary>
+            GET: api/Groups.
+            </summary>
+        </member>
+        <member name="M:WebApi.Controllers.GroupController.PostGroup(System.String,System.Int64[])">
+            <summary>
+            Posts the group.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="personIds">The person ids.</param>
+        </member>
+        <member name="M:WebApi.Controllers.GroupController.PutGroup(System.Int64,System.String,System.Int64[])">
+            <summary>
+            Puts the group.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="groupName">Name of the group.</param>
+            <param name="personIds">The person ids.</param>
+        </member>
+        <member name="T:WebApi.Controllers.PersonsController">
+            <summary>
+            PersonsController.
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="M:WebApi.Controllers.PersonsController.#ctor(Data.PersonManagementContext,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebApi.Controllers.PersonsController" /> class.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="mapper">The mapper.</param>
+        </member>
+        <member name="M:WebApi.Controllers.PersonsController.DeletePerson(System.Int64)">
+            <summary>
+            DELETE: api/Persons/5.
+            </summary>
+            <param name="id">The identifier.</param>
+        </member>
+        <member name="M:WebApi.Controllers.PersonsController.GetPerson(System.Int64)">
+            <summary>
+            GET: api/Persons/5.
+            </summary>
+            <param name="id">The identifier.</param>
+        </member>
+        <member name="M:WebApi.Controllers.PersonsController.GetPersons">
+            <summary>
+            GET: api/Persons.
+            </summary>
+        </member>
+        <member name="M:WebApi.Controllers.PersonsController.PostPerson(Data.Models.DTO.PersonDTO)">
+            <summary>
+            POST: api/Persons.
+            </summary>
+            <param name="person">The person.</param>
+        </member>
+        <member name="M:WebApi.Controllers.PersonsController.PutPerson(System.Int64,Data.Models.DTO.PersonDTO)">
+            <summary>
+            PUT: api/Persons/5.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="person">The person.</param>
+        </member>
+        <member name="T:WebApi.Controllers.UserController">
+            <summary>
+            UserController.
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="M:WebApi.Controllers.UserController.#ctor(Data.PersonManagementContext,AutoMapper.IMapper,Microsoft.AspNetCore.Identity.UserManager{Data.Models.Auth.AppUser},Microsoft.AspNetCore.Identity.SignInManager{Data.Models.Auth.AppUser})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebApi.Controllers.UserController" /> class.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="mapper">The mapper.</param>
+            <param name="userManager">The user manager.</param>
+            <param name="signInManager">The sign in manager.</param>
+        </member>
+        <member name="M:WebApi.Controllers.UserController.Login(Data.Models.Auth.LoginBindingModel)">
+            <summary>
+            Logins the user.
+            </summary>
+            <param name="model">The model.</param>
+        </member>
+        <member name="M:WebApi.Controllers.UserController.Register(Data.Models.Auth.AddUpdateRegisterUserBindingModel)">
+            <summary>
+            Registers the user.
+            </summary>
+            <param name="model">The application user dto.</param>
+        </member>
+        <member name="T:WebApi.Program">
+            <summary>
+            Program.
+            </summary>
+        </member>
+        <member name="M:WebApi.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Creates the host builder.
+            </summary>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WebApi.Program.Main(System.String[])">
+            <summary>
+            Defines the entry point of the application.
+            </summary>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="T:WebApi.Startup">
+            <summary>
+            Startup.
+            </summary>
+        </member>
+        <member name="P:WebApi.Startup.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>The configuration.</value>
+        </member>
+        <member name="M:WebApi.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebApi.Startup" /> class.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="M:WebApi.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Configures the specified application.
+            </summary>
+            <param name="app">The application.</param>
+            <param name="env">The env.</param>
+        </member>
+        <member name="M:WebApi.Startup.ConfigureContainer(Unity.IUnityContainer)">
+            <summary>
+            Configures the container.
+            </summary>
+            <param name="container">The container.</param>
+        </member>
+        <member name="M:WebApi.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the
+            container.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+    </members>
+</doc>

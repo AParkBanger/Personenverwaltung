@@ -187,16 +187,22 @@ export class GroupService {
      * 
      * 
      * @param id 
-     * @param groupDTO 
+     * @param groupName 
+     * @param requestBody 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiGroupIdPut(id: number, groupDTO?: GroupDTO, observe?: 'body', reportProgress?: boolean): Observable<any>;
-    public apiGroupIdPut(id: number, groupDTO?: GroupDTO, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
-    public apiGroupIdPut(id: number, groupDTO?: GroupDTO, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public apiGroupIdPut(id: number, groupDTO?: GroupDTO, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public apiGroupIdPut(id: number, groupName?: string, requestBody?: Array<number>, observe?: 'body', reportProgress?: boolean): Observable<any>;
+    public apiGroupIdPut(id: number, groupName?: string, requestBody?: Array<number>, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
+    public apiGroupIdPut(id: number, groupName?: string, requestBody?: Array<number>, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
+    public apiGroupIdPut(id: number, groupName?: string, requestBody?: Array<number>, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling apiGroupIdPut.');
+        }
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpParameterCodec()});
+        if (groupName !== undefined && groupName !== null) {
+            queryParameters = queryParameters.set('groupName', <any>groupName);
         }
 
         let headers = this.defaultHeaders;
@@ -211,6 +217,7 @@ export class GroupService {
 
         // to determine the Content-Type header
         const consumes: string[] = [
+            'application/json-patch+json',
             'application/json',
             'text/json',
             'application/_*+json'
@@ -221,8 +228,9 @@ export class GroupService {
         }
 
         return this.httpClient.put<any>(`${this.configuration.basePath}/api/Group/${encodeURIComponent(String(id))}`,
-            groupDTO,
+            requestBody,
             {
+                params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
@@ -234,14 +242,20 @@ export class GroupService {
     /**
      * 
      * 
-     * @param groupDTO 
+     * @param name 
+     * @param requestBody 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiGroupPost(groupDTO?: GroupDTO, observe?: 'body', reportProgress?: boolean): Observable<GroupDTO>;
-    public apiGroupPost(groupDTO?: GroupDTO, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GroupDTO>>;
-    public apiGroupPost(groupDTO?: GroupDTO, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GroupDTO>>;
-    public apiGroupPost(groupDTO?: GroupDTO, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public apiGroupPost(name?: string, requestBody?: Array<number>, observe?: 'body', reportProgress?: boolean): Observable<GroupDTO>;
+    public apiGroupPost(name?: string, requestBody?: Array<number>, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<GroupDTO>>;
+    public apiGroupPost(name?: string, requestBody?: Array<number>, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<GroupDTO>>;
+    public apiGroupPost(name?: string, requestBody?: Array<number>, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpParameterCodec()});
+        if (name !== undefined && name !== null) {
+            queryParameters = queryParameters.set('name', <any>name);
+        }
 
         let headers = this.defaultHeaders;
 
@@ -258,6 +272,7 @@ export class GroupService {
 
         // to determine the Content-Type header
         const consumes: string[] = [
+            'application/json-patch+json',
             'application/json',
             'text/json',
             'application/_*+json'
@@ -268,8 +283,9 @@ export class GroupService {
         }
 
         return this.httpClient.post<GroupDTO>(`${this.configuration.basePath}/api/Group`,
-            groupDTO,
+            requestBody,
             {
+                params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
